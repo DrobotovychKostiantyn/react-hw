@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import optionList from '../config/option-list.json';
 
 export default class NoteEditor extends Component {
   state = {
@@ -7,8 +8,10 @@ export default class NoteEditor extends Component {
   };
 
   handleSubmit = e => {
+    const { text, rate } = this.state;
+
     e.preventDefault();
-    this.props.onSubmit(this.state.text, this.state.rate);
+    this.props.onSubmit(text, rate);
   };
 
   handleChangeArea = ({ target: { value } }) => {
@@ -19,7 +22,6 @@ export default class NoteEditor extends Component {
 
   handleChangeSelect = ({ target: { value } }) => {
     this.setState({
-      text: this.state.text,
       rate: value,
     });
   };
@@ -36,16 +38,11 @@ export default class NoteEditor extends Component {
             <option value="" disabled>
               ...
             </option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
+            {optionList.map(item => (
+              <option key={item.id} value={item.value}>
+                {item.value}
+              </option>
+            ))}
           </select>
         </label>
         <input type="submit" value="Add" />

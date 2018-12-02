@@ -1,14 +1,14 @@
 import React from 'react';
-import history from './order-history.json';
+import history from '../config/order-history.json';
+import historyTitles from '../config/order-history-titles.json';
 
 const Table = () => (
   <table>
     <tbody>
       <tr>
-        <th>Date</th>
-        <th>Price</th>
-        <th>Address</th>
-        <th>Rating</th>
+        {historyTitles.map(item => (
+          <th key={item.title}>{item.title}</th>
+        ))}
       </tr>
       {history.map(item => (
         <tr key={item.id}>

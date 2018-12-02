@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
-import menuList from './menu.json';
-import Header from './header';
-import Table from './orderHistory';
-import Menu from './menu';
-import SignIn from './sign-in';
-import SignUp from './sign-up';
-import NodeEditor from './noteEditor';
-import NodeList from './nodeList';
-import FilterMenu from './filterMenu';
+
+import menuList from './config/menu.json';
+import Table from './TableOrderHistory/index';
+
+import Header from './Header/index';
+
+import FilterMenu from './FilterMenu/index';
+import Menu from './Menu/index';
+
+// forms
+import SignIn from './Sign-in/index';
+import SignUp from './Sign-up/index';
+
+// reviews
+import NodeEditor from './NoteEditor/index';
+import NodeList from './NodeList/index';
 
 const filterMenu = filter =>
   menuList.filter(item =>
