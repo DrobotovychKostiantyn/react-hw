@@ -1,8 +1,9 @@
 import React from 'react';
+import s from './navigation.module.css';
 
 const Nav = () => (
-  <nav>
-    <ul>
+  <nav className={s.nav}>
+    <ul className={s.navList}>
       <li>
         <a href="">Item 1</a>
       </li>
